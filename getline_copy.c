@@ -4,7 +4,7 @@
  *         Author:  Ming Chen, v.mingchen@gmail.com
  *        Created:  05/02/2014 08:30:49 PM
  *
- *    Description:  
+ *    Description: book p21 
  *
  * ===========================================================================
  */
@@ -16,10 +16,9 @@ int getLine(char s[], int lim);
 void copy(char from[], char to[]);
 
 int main(){
-	char line[MAXLINE];
-	char maxline[MAXLINE];
-	int maxlen = 0;
-	int len;
+	char line[MAXLINE], maxline[MAXLINE];
+	int len, maxlen = 0;
+
 	while((len = getLine(line, MAXLINE)) > 0){
 			if(len > maxlen){
 				maxlen = len;
@@ -27,32 +26,33 @@ int main(){
 			}
 	}
 	printf("max length is %d.", maxlen);
-	printf("%s", maxline);
+	printf("%s\n", maxline);
+
 	return 0;
 }
 
 //getline() is used to read and save a line to s[] and return its length
 int getLine(char s[], int lim){
 /*int getLine(char *s, int lim){*/
-	int i;
-	char c;
-	for(i=0; (i<lim-1) && (c=getchar() != EOF) && (c!='\n'); i++){ 
+	int i, c;
+
+	for(i=0; (i<lim-1) && (c=getchar() != EOF) && (c!='\n'); i++) 
 		s[i] = c;
-	}
-	if(c == '\n'){
-		s[i] = c;
-		i++;
-	}
+	if(c == '\n')
+		s[i++] = c;
 	s[i] = '\0';
+	printf("line is %s\n", s);
+
 	return i;
 }
 
 void copy(char from[], char to[]){
-	int i;
-	for(i=0; from[i] != '\0'; i++){
-		to[i] = from[i];
-	}
-	to[i] = '\0';
+	int i = 0;
+	
+	do {
+		to[i++] = from[i++];
+	}while(from[i] != '\0');
+	to[i] = from[i];
 }
 
 	
