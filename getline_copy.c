@@ -49,9 +49,8 @@ int getLine(char s[], int lim){
 void copy(char from[], char to[]){
 	int i = 0;
 	
-	do {
+	while(from[i] != '\0')
 		to[i++] = from[i++];
-	}while(from[i] != '\0');
 	to[i] = from[i];
 }
 
