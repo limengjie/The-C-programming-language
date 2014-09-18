@@ -21,6 +21,7 @@ void strCat(char *s, char *t){
 		;
 
 }
+
 void strnCpy(char *s, char *t, int n){
 	int i = 0;
 	do{
